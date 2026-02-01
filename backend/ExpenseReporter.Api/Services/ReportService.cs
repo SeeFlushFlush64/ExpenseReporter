@@ -1,4 +1,4 @@
-﻿using ExpenseReporter.Api.DTOs;
+﻿using ExpenseReporter.Api.Data.DTOs;
 using ExpenseReporter.Api.Interfaces;
 using ExpenseReporter.Api.Models;
 

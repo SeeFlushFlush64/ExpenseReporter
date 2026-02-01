@@ -1,4 +1,4 @@
-﻿namespace ExpenseReporter.Api.DTOs
+﻿namespace ExpenseReporter.Api.Data.DTOs
 {
     public class ExpenseCreateDto
     {
