@@ -1,0 +1,60 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Database
+*.mdf
+*.ldf
+*.ndf
+
+# Node modules (for React later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Production
+/frontend/build
+/frontend/dist
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+appsettings.Development.json
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Test coverage
+coverage/
+*.coverage
