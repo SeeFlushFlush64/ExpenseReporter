@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Configure relationships
+        // Configure relationships explicitly
         modelBuilder.Entity<Expense>()
             .HasOne(e => e.Employee)
             .WithMany(emp => emp.Expenses)
@@ -34,7 +34,6 @@ public class AppDbContext : DbContext
 
     private void SeedData(ModelBuilder modelBuilder)
     {
-        // Seed Employees
         modelBuilder.Entity<Employee>().HasData(
             new Employee
             {
@@ -65,7 +64,6 @@ public class AppDbContext : DbContext
             }
         );
 
-        // Seed Categories
         modelBuilder.Entity<ExpenseCategory>().HasData(
             new ExpenseCategory
             {
@@ -104,7 +102,6 @@ public class AppDbContext : DbContext
             }
         );
 
-        // Seed Expenses (January 2026)
         modelBuilder.Entity<Expense>().HasData(
             new Expense
             {

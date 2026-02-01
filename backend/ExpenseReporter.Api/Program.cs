@@ -1,4 +1,7 @@
 using ExpenseReporter.Api.Data;
+using ExpenseReporter.Api.Interfaces;
+using ExpenseReporter.Api.Repositories;
+using ExpenseReporter.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +31,10 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader();
     });
 });
+
+// Register repository and service
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 var app = builder.Build();
 
