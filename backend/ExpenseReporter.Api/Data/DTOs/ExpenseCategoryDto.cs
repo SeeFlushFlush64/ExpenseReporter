@@ -4,6 +4,7 @@ namespace ExpenseReporter.Api.Data.DTOs
 {
     public class ExpenseCategoryDto
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "Category name is required")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Category name must be between 1 and 50 characters")]
         public string Name { get; set; } = string.Empty;
