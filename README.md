@@ -9,23 +9,23 @@ ExpenseTrack is a comprehensive expense reporting solution that allows employees
 ## Screenshots
 
 ### Dashboard
-![Dashboard](https://github.com/user-attachments/assets/your-image-url-here)
+<img width="1919" height="1036" alt="Screenshot 2026-02-03 191505" src="https://github.com/user-attachments/assets/a4e9e815-f7f1-4336-8f99-3530ecb98317" />
 *Overview of expense reporting activity with key metrics and recent expenses*
 
 ### Expenses List
-![Expenses List](https://github.com/user-attachments/assets/your-image-url-here)
+<img width="1919" height="1032" alt="Screenshot 2026-02-03 191516" src="https://github.com/user-attachments/assets/c7139504-696f-4507-8209-3a7d6cf940e9" />
 *Manage and review all expense submissions with filtering and export capabilities*
 
 ### Add Expense
-![Add Expense](https://github.com/user-attachments/assets/your-image-url-here)
+<img width="1919" height="1042" alt="Screenshot 2026-02-03 191524" src="https://github.com/user-attachments/assets/60455753-ea76-4dd9-aadc-39fc51843696" />
 *Submit new expenses with detailed information*
 
 ### Employee Management
-![Employees](https://github.com/user-attachments/assets/your-image-url-here)
+<img width="1919" height="1029" alt="Screenshot 2026-02-03 191533" src="https://github.com/user-attachments/assets/d91c1e04-e5c1-400f-ac5d-dea38d11d5d3" />
 *View and manage employee information and expense totals*
 
 ### Excel Export
-![Excel Export](https://github.com/user-attachments/assets/your-image-url-here)
+<img width="1919" height="1079" alt="Screenshot 2026-02-03 191605" src="https://github.com/user-attachments/assets/83546257-4966-44dc-afce-acb3fdebcc51" />
 *Export expense reports to Excel with all details*
 
 ## Features
