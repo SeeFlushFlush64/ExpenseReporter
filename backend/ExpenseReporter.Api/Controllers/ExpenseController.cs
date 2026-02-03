@@ -1,5 +1,6 @@
 ﻿using ExpenseReporter.Api.Data.DTOs;
 using ExpenseReporter.Api.Interfaces;
+using ExpenseReporter.Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +11,12 @@ namespace ExpenseReporter.Api.Controllers
     public class ExpenseController : ControllerBase
     {
         private readonly IReportService _service;
+        private readonly ExcelExportService _excelService;
 
-        public ExpenseController(IReportService service)
+        public ExpenseController(IReportService service, ExcelExportService excelService)
         {
             _service = service;
+            _excelService = excelService;
         }
 
         // ─── GET all expenses ────────────────────────────────────
@@ -117,6 +120,34 @@ namespace ExpenseReporter.Api.Controllers
         {
             var total = await _service.GetTotalExpensesByCategoryAsync(categoryId);
             return Ok(total);
+        }
+
+        // ─── EXPORT to Excel ─────────────────────────────────────
+        // GET api/expense/export/excel?startDate=2026-01-01&endDate=2026-01-31
+
+        [HttpGet("export/excel")]
+        public async Task<IActionResult> ExportToExcel(
+            [FromQuery] DateTime? startDate = null,
+            [FromQuery] DateTime? endDate = null)
+        {
+            IEnumerable<ExpenseDto> expenses;
+
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                expenses = await _service.GetExpensesByDateRangeAsync(startDate.Value, endDate.Value);
+            }
+            else
+            {
+                expenses = await _service.GetAllExpensesAsync();
+            }
+
+            var excelData = _excelService.GenerateExpenseReport(expenses, startDate, endDate);
+
+            var fileName = startDate.HasValue && endDate.HasValue
+                ? $"ExpenseReport_{startDate.Value:yyyyMMdd}_{endDate.Value:yyyyMMdd}.xlsx"
+                : $"ExpenseReport_{DateTime.Now:yyyyMMdd}.xlsx";
+
+            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
 
         // ─── POST create expense ─────────────────────────────────
