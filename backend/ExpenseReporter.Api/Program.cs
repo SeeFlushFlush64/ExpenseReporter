@@ -4,6 +4,7 @@ using ExpenseReporter.Api.Middleware;
 using ExpenseReporter.Api.Repositories;
 using ExpenseReporter.Api.Services;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,14 +27,18 @@ builder.Services.AddDbContext<AppDbContext>(options => {
     );
 });
 
+// SET EPPLUS LICENSE
+OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
 // Add CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
 
@@ -41,6 +46,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<ExcelExportService>();
+
+
 
 var app = builder.Build();
 
