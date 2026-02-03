@@ -40,6 +40,7 @@ builder.Services.AddCors(options =>
 // Register repository and service
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<ExcelExportService>();
 
 var app = builder.Build();
 
